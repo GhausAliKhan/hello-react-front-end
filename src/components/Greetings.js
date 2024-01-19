@@ -7,7 +7,6 @@ function Greetings() {
   const dispatch = useDispatch();
   const greetingsData = useSelector((state) => state.greetings.greetings);
   const [animation, setAnimation] = useState('');
-  const singleGreeting = greetingsData[Math.floor(Math.random() * greetingsData.length)];
 
   useEffect(() => {
     dispatch(fetchGreetings());
@@ -28,7 +27,7 @@ function Greetings() {
 
   return (
     <div className="center">
-      {singleGreeting && <h2 className={animation}>{singleGreeting.message}</h2>}
+      {greetingsData && <h2 className={animation}>{greetingsData.message}</h2>}
 
       <button onClick={handleClick} className="greeting-btn" type="button">
         Get Greeting
